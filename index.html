@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Estratégico | Início de Projeto</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --border-focus: #93c5fd;
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header do Formulário */
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cartões de Seção (Fases) */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Grupos de Formulário */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-hint {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Inputs e Textareas */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f9fafb;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            background-color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Checkboxes e Radios */
+        .options-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: #f9fafb;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .option-label:hover {
+            background-color: #f3f4f6;
+            border-color: #d1d5db;
+        }
+
+        /* Customizando a bolinha/quadrado nativo */
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-top: 4px;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Botão Submit */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="form-header">
+            <h1>Briefing Estratégico</h1>
+            <p>Este documento serve para alinharmos as expectativas, entendermos a fundo o seu negócio e garantirmos que o projeto final seja exatamente o que você imaginou (ou ainda melhor).</p>
+        </header>
+
+        <!-- Formulário apontando para o seu Formspree -->
+        <form action="https://formspree.io/f/xwvregpe" method="POST">
+            
+            <!-- Dados Básicos de Contato (Essencial para você saber de quem é o briefing) -->
+            <div class="card">
+                <div class="card-title">👋 Seus Dados</div>
+                <div class="card-desc">Como podemos entrar em contato com você?</div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="nome_cliente">Nome Completo / Empresa</label>
+                    <input type="text" id="nome_cliente" name="0_Nome_do_Cliente" required placeholder="Ex: João Silva ou Empresa XYZ">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email_cliente">Seu e-mail profissional</label>
+                    <input type="email" id="email_cliente" name="email" required placeholder="seuemail@exemplo.com">
+                </div>
+            </div>
+
+            <!-- FASE 1 -->
+            <div class="card">
+                <div class="card-title">🟡 Fase 1: Entendendo o Negócio</div>
+                <div class="card-desc">Antes de escrevermos código, precisamos entender o que estamos vendendo.</div>
+
+                <div class="form-group">
+                    <label class="form-label">1. Como você descreveria o seu negócio (ou serviço) em apenas 2 linhas?</label>
+                    <span class="form-hint">Isso nos ajuda a criar a manchete principal (Hero Section) do site.</span>
+                    <textarea name="Fase1_Descricao_Negocio" required placeholder="Meu negócio ajuda pessoas a..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">2. Quem é o seu cliente ideal?</label>
+                    <span class="form-hint">Idade, profissão, classe social, maiores desejos e medos.</span>
+                    <textarea name="Fase1_Cliente_Ideal" required placeholder="Meu cliente ideal tem entre 25 e 40 anos, busca facilidade..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">3. Qual é o seu maior diferencial em relação aos concorrentes?</label>
+                    <span class="form-hint">Isso precisa estar em destaque logo na primeira dobra do site.</span>
+                    <textarea name="Fase1_Diferencial" required placeholder="Nós entregamos mais rápido e temos um suporte humanizado..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4. Quais são os 3 principais produtos ou serviços que você quer focar neste site?</label>
+                    <textarea name="Fase1_Principais_Produtos" required placeholder="1. Consultoria, 2. Mentoria, 3. Curso Online..."></textarea>
+                </div>
+            </div>
+
+            <!-- FASE 2 -->
+            <div class="card">
+                <div class="card-title">🔵 Fase 2: O Objetivo do Projeto (A Meta)</div>
+                <div class="card-desc">Um site bonito que não converte é inútil. Precisamos definir a função dele.</div>
+
+                <div class="form-group">
+                    <label class="form-label">5. Qual é a Ação Principal que o visitante deve tomar ao entrar no site?</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="Fase2_Acao_Principal" value="WhatsApp" required>
+                            Clicar no botão de WhatsApp para falar com vendas.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase2_Acao_Principal" value="Formulário">
+                            Preencher um formulário de orçamento/contato.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase2_Acao_Principal" value="Comprar (E-commerce)">
+                            Comprar um produto diretamente (E-commerce).
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase2_Acao_Principal" value="Criar Conta (SPA)">
+                            Criar uma conta / Fazer login (SPA/Sistema).
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase2_Acao_Principal" value="Institucional">
+                            Apenas consumir conteúdo institucional.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">6. Quais são os sites de concorrentes ou referências que você admira?</label>
+                    <span class="form-hint">Por favor, envie 2 ou 3 links e nos diga *o que* você gosta neles.</span>
+                    <textarea name="Fase2_Referencias" required placeholder="Gosto do site www.exemplo.com porque as cores são vivas e é fácil de navegar..."></textarea>
+                </div>
+            </div>
+
+            <!-- FASE 3 -->
+            <div class="card">
+                <div class="card-title">🟣 Fase 3: Design e Identidade Visual (A Estética)</div>
+                <div class="card-desc">Para garantirmos que o site terá a cara da sua marca.</div>
+
+                <div class="form-group">
+                    <label class="form-label">7. Você já possui uma Identidade Visual?</label>
+                    <span class="form-hint">Logotipo, paleta de cores, manual da marca.</span>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="Fase3_Identidade_Visual" value="Tenho Tudo" required>
+                            Sim, tenho tudo pronto (enviarei os arquivos depois).
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase3_Identidade_Visual" value="Apenas Logo">
+                            Tenho apenas o Logo.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase3_Identidade_Visual" value="Nao Tenho">
+                            Não, preciso que usem cores que combinem com a minha área.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">8. Quais sentimentos o seu site deve transmitir? (Escolha até 3)</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Luxo e Exclusividade"> Luxo e Exclusividade
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Tecnologia e Inovação"> Tecnologia e Inovação
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Tradição e Segurança"> Tradição e Segurança
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Alegria e Descontração"> Alegria e Descontração
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Minimalismo e Limpeza"> Minimalismo e Limpeza
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="Fase3_Sentimentos[]" value="Velocidade e Urgência"> Velocidade e Urgência
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 4 -->
+            <div class="card">
+                <div class="card-title">🟢 Fase 4: Conteúdo e Estrutura</div>
+                <div class="card-desc">O que vai preencher as páginas (Os "Tijolos").</div>
+
+                <div class="form-group">
+                    <label class="form-label">9. Você já tem os textos (Copy) e as fotos/vídeos que serão usados?</label>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="Fase4_Conteudo_Pronto" value="Tenho Tudo" required>
+                            Sim, enviarei tudo em uma pasta.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase4_Conteudo_Pronto" value="Apenas Fotos">
+                            Tenho algumas fotos, mas precisarei de ajuda com os textos.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase4_Conteudo_Pronto" value="Nao Tenho Nada">
+                            Não tenho nada, precisarei que usem fotos de banco de imagens e criem os textos padrão.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">10. Quais seções não podem faltar no seu site?</label>
+                    <div class="options-grid">
+                        <label class="option-label"><input type="checkbox" name="Fase4_Secoes[]" value="Sobre Nós"> Quem Somos / Sobre nós</label>
+                        <label class="option-label"><input type="checkbox" name="Fase4_Secoes[]" value="Serviços/Produtos"> Nossos Serviços / Produtos</label>
+                        <label class="option-label"><input type="checkbox" name="Fase4_Secoes[]" value="Depoimentos"> Depoimentos / Prova Social</label>
+                        <label class="option-label"><input type="checkbox" name="Fase4_Secoes[]" value="FAQ"> Perguntas Frequentes (FAQ)</label>
+                        <label class="option-label"><input type="checkbox" name="Fase4_Secoes[]" value="Contato/Mapa"> Formulário de Contato / Localização</label>
+                    </div>
+                    <!-- Campo de texto para "Outro" -->
+                    <div style="margin-top: 10px;">
+                        <input type="text" name="Fase4_Secoes_Outros" placeholder="Outra seção? Descreva aqui...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 5 -->
+            <div class="card">
+                <div class="card-title">🟠 Fase 5: Infraestrutura e Prazos</div>
+                <div class="card-desc">Para não haver surpresas no final da logística.</div>
+
+                <div class="form-group">
+                    <label class="form-label">11. Você já possui um Domínio registrado?</label>
+                    <span class="form-hint">Ex: www.suaempresa.com.br</span>
+                    <div class="options-grid">
+                        <label class="option-label">
+                            <input type="radio" name="Fase5_Dominio" value="Sim" required> Sim.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="Fase5_Dominio" value="Nao"> Não, precisarei de ajuda com isso.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">12. Qual é o prazo ideal que você tem em mente para o lançamento do projeto?</label>
+                    <input type="text" name="Fase5_Prazo" required placeholder="Ex: Daqui a 30 dias, primeira semana do mês que vem...">
+                </div>
+            </div>
+
+            <!-- Botão de Envio -->
+            <button type="submit" class="submit-btn">
+                Enviar Briefing para Análise
+            </button>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">
+                Ao enviar, nossa equipe de engenharia receberá seus dados com segurança.
+            </p>
+
+        </form>
+    </div>
+
+</body>
+</html>
